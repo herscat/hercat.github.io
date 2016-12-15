@@ -1,0 +1,20 @@
+--- layout: default ---
+{% for post in paginator.posts %}
+{% endfor %}
+Welcome to
+{{ site.title }}
+
+Posts
+Categories
+{% for post in paginator.posts %}
+{{ post.date | date: "%b %-d, %Y" }}
+{{ post.title }}
+
+{{ post.content | strip_html | truncatewords: 30 }}
+
+Read More
+{% endfor %}
+{% if paginator.total_pages > 1 %}
+{% if paginator.previous_page %} Previous {% endif %} {% if paginator.next_page %} Next {% endif %}
+{% endif %} {% include archive-link.html %}
+{% include categories-tab.html %}
